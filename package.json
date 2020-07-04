@@ -1,0 +1,52 @@
+{
+  "name": "vscode-tfjs-coco-ssd",
+  "displayName": "Object detection",
+  "description": "Object detection",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "publisher": "caponetto",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCustomEditor:objectDetection"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caponetto/vscode-tfjs-coco-ssd.git"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "objectDetection",
+        "displayName": "Object detection",
+        "selector": [
+          {
+            "filenamePattern": "*.png"
+          },
+          {
+            "filenamePattern": "*.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint . --ext .ts,.tsx",
+    "watch": "tsc -w -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.0",
+    "@types/vscode": "^1.46.0",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2",
+    "eslint": "^7.1.0",
+    "typescript": "^3.9.4"
+  }
+}
