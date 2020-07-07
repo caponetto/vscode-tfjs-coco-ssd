@@ -86,7 +86,7 @@ export class ObjectDectectionEditorProvider
           </div>
         </div>
         <script nonce="${nonce}" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-        <script nonce="${nonce}" src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.0.3"></script>
+        <script nonce="${nonce}" src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.1.0"></script>
         <script nonce="${nonce}" src="${scriptUri}"></script>
       </body>
       </html>`;
