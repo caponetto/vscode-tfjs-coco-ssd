@@ -40,7 +40,9 @@ export class ObjectDectectionEditorProvider
     webviewPanel.webview.onDidReceiveMessage((e) => {
       if (e.type === "ready") {
         this.postMessage(webviewPanel, "init", {
-          value: document.content,
+          path: document.uri.fsPath,
+          content: document.content,
+          endpoint: "http://localhost:3000/detect",
         });
       }
     });
@@ -57,12 +59,12 @@ export class ObjectDectectionEditorProvider
   private getHtmlForWebview(webview: vscode.Webview): string {
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.file(
-        path.join(this.context.extensionPath, "media", "editor.js")
+        path.join(this.context.extensionPath, "client", "media", "editor.js")
       )
     );
     const styleUri = webview.asWebviewUri(
       vscode.Uri.file(
-        path.join(this.context.extensionPath, "media", "editor.css")
+        path.join(this.context.extensionPath, "client", "media", "editor.css")
       )
     );
 

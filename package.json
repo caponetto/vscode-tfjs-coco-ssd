@@ -2,23 +2,23 @@
   "name": "vscode-tfjs-coco-ssd",
   "displayName": "Object detection",
   "description": "Object detection",
-  "version": "0.0.1",
   "license": "Apache-2.0",
-  "publisher": "caponetto",
-  "engines": {
-    "vscode": "^1.46.0"
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caponetto/vscode-tfjs-coco-ssd"
   },
+  "publisher": "caponetto",
   "categories": [
     "Other"
   ],
+  "main": "./client/out/extension",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
   "activationEvents": [
     "onCustomEditor:objectDetection"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/caponetto/vscode-tfjs-coco-ssd.git"
-  },
-  "main": "./out/extension.js",
   "contributes": {
     "customEditors": [
       {
@@ -37,16 +37,18 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "lint": "eslint . --ext .ts,.tsx",
-    "watch": "tsc -w -p ./"
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd .."
   },
   "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "mocha": "^6.2.2",
     "@types/node": "^12.12.0",
-    "@types/vscode": "^1.46.0",
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
     "eslint": "^7.1.0",
-    "typescript": "^3.9.4"
+    "@typescript-eslint/parser": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "typescript": "^3.9.4",
+    "@types/vscode": "^1.46.0"
   }
 }

@@ -8,6 +8,5 @@
     "sourceMap": true
   },
   "include": ["src"],
-  "exclude": ["node_modules"],
-  "references": [{ "path": "./client" }]
+  "exclude": ["node_modules"]
 }
