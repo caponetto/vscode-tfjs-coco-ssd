@@ -1,6 +1,2 @@
-node_modules/
-out/
-.idea
-**/.DS_Store
-*.log
-.vscode/
+out
+node_modules

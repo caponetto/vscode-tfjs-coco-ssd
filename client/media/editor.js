@@ -37,15 +37,33 @@
       this.spinner.style.display = "none";
     }
 
-    async reset(data) {
+    async reset(imageData, path, endpoint) {
       this.showLoading();
 
-      const image = await loadImageFromData(data);
-      const objects = await this.detect(image);
+      const image = await loadImageFromData(imageData);
 
+      if (endpoint) {
+        fetch(endpoint + `?filePath=${path}`)
+          .then((response) => response.json())
+          .then((objects) => {
+            this.finishReset(image, objects);
+          })
+          .catch(async (e) => {
+            await this.clientSideDetection(image);
+          });
+      } else {
+        this.clientSideDetection(image);
+      }
+    }
+
+    async clientSideDetection(image) {
+      const objects = await this.detect(image);
+      this.finishReset(image, objects);
+    }
+
+    finishReset(image, objects) {
       this.drawImage(image);
       this.drawPredictions(objects);
-
       this.hideLoading();
     }
 
@@ -94,7 +112,11 @@
   window.addEventListener("message", async (e) => {
     const { type, body } = e.data;
     if (type === "init") {
-      await editor.reset(new Uint8Array(body.value.data));
+      await editor.reset(
+        new Uint8Array(body.content.data),
+        body.path,
+        body.endpoint
+      );
     }
   });
 

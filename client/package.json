@@ -1,0 +1,14 @@
+{
+  "name": "vscode-tfjs-coco-ssd-client",
+  "description": "Object detection (client)",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "private": true,
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caponetto/vscode-tfjs-coco-ssd"
+  }
+}

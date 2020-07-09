@@ -1,0 +1,20 @@
+{
+  "name": "vscode-tfjs-coco-ssd-server",
+  "description": "Object detection (optional server)",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "private": true,
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caponetto/vscode-tfjs-coco-ssd"
+  },
+  "dependencies": {
+    "@tensorflow-models/coco-ssd": "^2.1.0",
+    "@tensorflow/tfjs-node": "^2.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
